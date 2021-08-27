@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CreateApp</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://unpkg.com/vue@next"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="slides">
+            <button class="btn" v-on:click="sayHi()">GET IN TOUCH</button>
+        </div>
+        <div v-for="(val, key) in services" :key="`uni${key}`" class="svcContainer" :style="{background: val.bg}">
+            <div  :class="{[cls]: true, flxflip: key%2}">
+                <img :src="val.img" :alt="title">
+                <!-- <img v-show="showImg > 2" :src="img" :alt="img"> -->
+                <!-- <p v-else-if="showImg > 1">showImg is {{showImg}}</p>
+                <p v-else>showImg is false</p> -->
+                <div>
+                    <h1>{{val.title}}</h1>
+                    <ul>
+                        <li v-for="(item, ind) in val.details" :key="ind">{{item}}</li>
+                    </ul>
+                    <p>{{description}}</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
